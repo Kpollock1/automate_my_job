@@ -3,7 +3,7 @@
 A program to automate work at AMFIG
 """
 
-import pyautogui as pg, time, os, logging, sys, random, copy, subprocess
+import pyautogui as pg, time, os, logging, sys, random, copy, subprocess, static_coordinates
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
