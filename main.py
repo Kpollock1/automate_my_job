@@ -8,7 +8,8 @@ import pyautogui as pg
 import subprocess
 import time
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 
 def log_into_epic():
@@ -17,23 +18,23 @@ def log_into_epic():
     pg.press('win')
     pg.typewrite('applied')
     pg.press('enter')
-    logging.debug('Started applied')
+    logging.info('Started applied')
     time.sleep(10)
 
     # Type name into applied login, click continue
     pg.typewrite(f'{applied_password}')
     pg.press('enter')
-    logging.debug('Entered password')
+    logging.info('Entered password')
 
     time.sleep(18)
     pg.click(1133, 612,)
-    logging.debug('Clicked continue')
+    logging.info('Clicked continue')
 
 
 def open_edge():
     # Open Edge and snap left
     subprocess.call(["C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"])
-    logging.debug('Opened Edge')
+    logging.info('Opened Edge')
     time.sleep(.25)
     pg.hotkey('win', 'left')
 
@@ -41,12 +42,14 @@ def open_edge():
 def open_outlook():
     # Open Outlook and snap left
     subprocess.Popen(["C:\Program Files\Microsoft Office\\root\Office16\OUTLOOK.EXE"])
-    logging.debug('Opened Outlook')
+    logging.info('Opened Outlook')
     time.sleep(7)
     pg.hotkey('win', 'left')
-    logging.debug('Snapped outlook window to left')
+    logging.info('Snapped outlook window to left')
 
 
-log_into_epic()
-open_edge()
-open_outlook()
+# log_into_epic()
+# open_edge()
+# open_outlook()
+
+
