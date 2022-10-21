@@ -27,7 +27,7 @@ def log_into_epic():
     logging.info('Entered password')
 
     time.sleep(18)
-    pg.click(1133, 612,)
+    pg.click(1133, 612, )
     logging.info('Clicked continue')
 
 
@@ -52,4 +52,9 @@ def open_outlook():
 # open_edge()
 # open_outlook()
 
+img1 = pg.screenshot('my_screenshot.png', region=(0, 373, 217, 30))
+button_location = pg.locateOnScreen('my_screenshot.png')
+pg.click('my_screenshot.png')
+button_point = pg.center(button_location)
+button_point
 
