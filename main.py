@@ -10,6 +10,12 @@ import time
 import os
 
 
+def imPath(filename):
+    """A shortcut for joining the 'images/'' file path, since it is used so often. Returns the filename with
+    'images/' prepended. """
+    return os.path.join('images', filename)
+
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
 
@@ -53,12 +59,6 @@ def open_outlook():
 # log_into_epic()
 # open_edge()
 # open_outlook()
-
-def imPath(filename):
-    """A shortcut for joining the 'images/'' file path, since it is used so often. Returns the filename with
-    'images/' prepended. """
-    return os.path.join('images', filename)
-
 
 pg.click(imPath('locate.png'))
 
