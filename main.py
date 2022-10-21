@@ -7,6 +7,8 @@ import logging
 import pyautogui as pg
 import subprocess
 import time
+import os
+
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
@@ -52,9 +54,11 @@ def open_outlook():
 # open_edge()
 # open_outlook()
 
-img1 = pg.screenshot('my_screenshot.png', region=(0, 373, 217, 30))
-button_location = pg.locateOnScreen('my_screenshot.png')
-pg.click('my_screenshot.png')
-button_point = pg.center(button_location)
-button_point
+def imPath(filename):
+    """A shortcut for joining the 'images/'' file path, since it is used so often. Returns the filename with
+    'images/' prepended. """
+    return os.path.join('images', filename)
+
+
+pg.click(imPath('locate.png'))
 
