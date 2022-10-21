@@ -3,37 +3,50 @@
 A program to automate work at AMFIG
 """
 
-import pyautogui as pg, time, os, logging, sys, random, copy, subprocess, static_coordinates
+import logging
+import pyautogui as pg
+import subprocess
+import time
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# applied_password = 'Brooklyn132!'
-# # Start applied app
-# pg.press('win')
-# pg.typewrite('applied')
-# pg.press('enter')
-# logging.debug('Started applied')
-# time.sleep(9)
-#
-#
-# # Type name into applied login
-# pg.typewrite(f'{applied_password}')
-# pg.press('enter')
-# logging.debug('Entered password')
-#
-# time.sleep(17)
-# pg.click(1133, 612,)
-# logging.debug('Clicked continue')
 
-# Open Edge and snap left
-subprocess.call(["C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"])
+def log_into_epic():
+    applied_password = 'Brooklyn132!'
+    # Start applied app
+    pg.press('win')
+    pg.typewrite('applied')
+    pg.press('enter')
+    logging.debug('Started applied')
+    time.sleep(10)
 
-time.sleep(.25)
-pg.hotkey('win', 'left')
+    # Type name into applied login, click continue
+    pg.typewrite(f'{applied_password}')
+    pg.press('enter')
+    logging.debug('Entered password')
 
-# Open Outlook and snap left
-subprocess.call(["C:\Program Files\Microsoft Office\\root\Office16\OUTLOOK.EXE"])
+    time.sleep(18)
+    pg.click(1133, 612,)
+    logging.debug('Clicked continue')
 
-time.sleep(2)
-pg.hotkey('win', 'left')
 
+def open_edge():
+    # Open Edge and snap left
+    subprocess.call(["C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"])
+    logging.debug('Opened Edge')
+    time.sleep(.25)
+    pg.hotkey('win', 'left')
+
+
+def open_outlook():
+    # Open Outlook and snap left
+    subprocess.Popen(["C:\Program Files\Microsoft Office\\root\Office16\OUTLOOK.EXE"])
+    logging.debug('Opened Outlook')
+    time.sleep(7)
+    pg.hotkey('win', 'left')
+    logging.debug('Snapped outlook window to left')
+
+
+log_into_epic()
+open_edge()
+open_outlook()
